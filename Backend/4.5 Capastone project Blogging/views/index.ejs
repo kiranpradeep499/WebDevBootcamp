@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs") %>
+      <% if (blogs.length === 0) { %>
+        <div class = "container">
+            <p style="font-weight: lighter; margin-left: 500px;">There are no blogs to show.</p>
+        </div>
+       <% } else { %>
+        <% for( let index = 0; index < blogs.length; index++ ) { %>
+            <form action="/delete-blog" method="DELETE">
+                <div class = "container mb-5" style="border: 1px solid rgb(103, 148, 195)">
+                    <div class="mb-3 mt-3">
+                        <label for="exampleFormControlInput1" class="form-label"><strong>Blog Title</strong></label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" value="<%= blogs[index].title %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label"><strong>Blog Content</strong></label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"><%= blogs[index].content %></textarea>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary mb-3 mx-1">Update</button>
+                    <button type="submit" class="btn btn-outline-danger mb-3 mx-1">Delete</button>
+                </div>
+            </form>   
+      <% } %>
+      <% } %>
+      
+</body>
+</html>
