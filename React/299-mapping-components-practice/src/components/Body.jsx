@@ -14,6 +14,7 @@ function createEmojiCard(emojiObject){
 }
 
 function Body(){
+    emojipedia.map(getEmojiMeaning)
     return (
       <dl className="dictionary">
         {emojipedia.map(createEmojiCard)}    
